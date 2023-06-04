@@ -1,10 +1,10 @@
-package home.danil.myboot.PP312.services;
+package home.danil.myboot.PP312.dao;
 
 import home.danil.myboot.PP312.models.User;
+
 import java.util.List;
 
-
-public interface UsersService {
+public interface UserDAO {
 
     List<User> findAll();
 

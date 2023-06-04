@@ -10,8 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-//import javax.validation.Valid;
-
 /**
  * @author Neil Alishev
  */
@@ -47,7 +45,7 @@ public class UsersController {
     public String create(@ModelAttribute("user") @Valid User user) {
 
         usersService.save(user);
-        return "redirect:/users";
+        return "redirect:/templates/users";
     }
 
     @GetMapping("/{id}/edit")
@@ -60,12 +58,12 @@ public class UsersController {
     public String update(@ModelAttribute("user") @Valid User user, @PathVariable("id") long id) {
 
         usersService.update(id, user);
-        return "redirect:/users";
+        return "redirect:/templates/users";
     }
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") long id) {
         usersService.delete(id);
-        return "redirect:/users";
+        return "redirect:/templates/users";
     }
 }

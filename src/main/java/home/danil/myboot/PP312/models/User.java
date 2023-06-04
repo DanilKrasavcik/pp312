@@ -8,6 +8,7 @@ import javax.validation.constraints.Size;*/
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
+import java.util.Objects;
 
 
 /**
@@ -83,5 +84,17 @@ public class User {
                 ", age=" + age +
                 ", email='" + email + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User user)) return false;
+        return getId() == user.getId() && getAge() == user.getAge() && Objects.equals(getName(), user.getName()) && Objects.equals(getEmail(), user.getEmail());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getName(), getAge(), getEmail());
     }
 }
